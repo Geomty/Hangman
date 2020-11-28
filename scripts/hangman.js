@@ -47,3 +47,4 @@ while (secretWord != guessedWord) {
     }
 }
 alert('Wait a minute... you discovered the secret word! Congratulations! Press "OK" to view your prize.');
+document.getElementById("image").src = "./images/confetti.webp";
