@@ -5,6 +5,9 @@ var allowedGuesses = 5;
 
 
 var name = prompt('What is your name?');
+while (name == 'null' || name.length == 0) {
+    name = prompt('Please enter an actual name.');
+}
 var secretArray = secretWord.split('');
 var guessedWord = "";
 for (i=0;i<secretWord.length;i++) {
@@ -23,6 +26,10 @@ while (secretWord != guessedWord) {
         if (guessedArrayTwo.indexOf(answer) != -1) {
             incorrectGuesses++;
             alert(`${name}, you've already guessed that! "${guessedWord}" is how much of the word you've discovered so far, and you have guessed ${guessedArrayTwo.join(', ')}. You now have ${incorrectGuesses} incorrect guesses.`);
+        } else if (typeof answer == 'object') {
+            incorrectGuesses++;
+            guessedArrayTwo.push(answer);
+            alert(`${name}, you must input a single character. "${guessedWord}" is how much of the word you've discovered so far, and you have guessed ${guessedArrayTwo.join(', ')}. You now have ${incorrectGuesses} incorrect guesses.`);
         } else if (answer.length != 1) {
             incorrectGuesses++;
             guessedArrayTwo.push(answer);
